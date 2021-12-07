@@ -7,9 +7,9 @@ function App() {
   return (
     <div>
      <Routes>
-     <Route path="/login" component={Login}/>
-     <Route path="/register" component={Register}/>
-     <Route path="/task" component={Task}/>
+     <Route path="/login" element={<Login/>}/>
+     <Route path="/Register" element={<Register/>}/>
+     <Route path="/task" element={<Task/>}/>
      </Routes>
      <Link to="/register" >Register</Link>
      <Link to="/login" >Login</Link>
