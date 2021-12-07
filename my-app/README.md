@@ -49,7 +49,7 @@ It is a link between backend and frontend and fetching the task from Mongoose Da
 
 ##How to use
 
-- **Signup:** At first, you need to register a new account
+- **Signup:** At first, you need to register a new accountc
 - **Login:** As a user I can login to the platform so that I can log my exit points
 - **Logout:** As a user I can logout from the platform so no one else can use it
 - **Add a new task** You can create as many stickers as you want
