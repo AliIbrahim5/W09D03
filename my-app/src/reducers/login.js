@@ -14,7 +14,6 @@ switch (type) {
         return {user,token};
 
         case "LOGOUT":
-            localStorage.clear();
             return {user: null,token:""};
 
             default: 
@@ -38,6 +37,7 @@ export const logout =(data) =>{
 
     return{
         type : "LOGOUT",
+        
         payload: data,
 
     }

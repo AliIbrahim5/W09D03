@@ -2,7 +2,6 @@ import {React,useEffect,useState} from 'react';
 import {Link} from "react-router-dom"
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import {login} from "../../reducers/login";
 import Swal from "sweetalert2";
 
 
@@ -14,7 +13,7 @@ const Task = () => {
     const [id,setId] = useState("");
     const [tasks,setTasks] = useState([]);
     const [task,setTask] = useState("");
-
+    const dispatch = useDispatch();
     useEffect (() => {
         const storgToken =localStorage.getItem("token");
         setToken(storgToken);
@@ -55,10 +54,16 @@ const Task = () => {
                 },
             });
 
+            
+
         } catch (error) {
            console.log(error);
         }
         gettasks(token);
+    }
+
+    const logout =()=>{
+    localStorage.clear();
     }
 
     const updatetaks = async (id)=>{
@@ -121,6 +126,9 @@ const Task = () => {
                   <button  onClick={addtask}>
                     ADD
                   </button>
+                  <button  onClick={logout}>
+                    logout
+                  </button>
                 </div>
                 {tasks.length ? (
                   <ul >
@@ -141,11 +149,13 @@ const Task = () => {
                             Delete
                           </button>
                         </div>
+                       
                       </div>
                     ))}
                   </ul>
                 ) : (
                   <h2> There is no task</h2>
+                  
                 )}
               </div>
             )}
