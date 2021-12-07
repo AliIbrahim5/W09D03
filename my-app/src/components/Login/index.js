@@ -1,66 +1,62 @@
-import React from 'react';
-import { useState,useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import axios from "axios";
 import Task from "../Task";
-import {useDispatch,useSelector} from "react-redux";
-import {login} from "../../reducers/login"
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../../reducers/login";
 const URL = "http://localhost:5000";
+// const URL = process.env.REACT_APP_URL
 // فانكسن لوقين  فيها كل العمليات والفانكشن الي وهي تعتبر الام لجميع مابداخلها
 const Login = () => {
-    const state = useSelector((state)=>{
-        return {
-            singnIn:state.singnIn
-        };
-    });
-    console.log(state);
-    console.log(state.singnIn);
-    const dispatch = useDispatch();
-
-    const navigate = useNavigate();
-    const [email, setEmail] =useState();
-    const [password, setPassword] = useState();
-    const [tokenLocal,setTokenLocal] = useState();
-    const backTOreg = ()=>{
-        navigate("/Register");
+  const state = useSelector((state) => {
+    return {
+      singnIn: state.singnIn,
     };
-    // بداية فانكشن اللوقين ويتم جلبها من الباك اند لتسجيل الدخول 
-    const logIn = async (vil)=>{
-        vil.preventDefault();
+  });
+  console.log(state);
+  console.log(state.singnIn);
+  const dispatch = useDispatch();
 
-        const  res = await axios.post(`${URL}/login`,{
-            email:email,
-            password:password,
-        });
+  const navigate = useNavigate();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [tokenLocal, setTokenLocal] = useState();
+  const backTOreg = () => {
+    navigate("/Register");
+  };
+  // بداية فانكشن اللوقين ويتم جلبها من الباك اند لتسجيل الدخول
+  const logIn = async (vil) => {
+    vil.preventDefault();
+    // console.log(URL);
+    const res = await axios.post(`${URL}/login`, {
+      email: email,
+      password: password,
+    });
 
-        const data ={
-            user: res.data.result,
-            token:res.data.result,
+    const data = {
+      user: res.data.result,
+      token: res.data.result,
+    };
+    // console.log("data",data);
+    dispatch(login({ data }));
 
-        }
-        // console.log("data",data);
-        dispatch(login({data}));
+    if (res) {
+      // اللوكل الستورج تجيب لي ثلاث حاجات وضعتها وهي الرول والتوكين وايدي اليوزر
+      localStorage.setItem("role", res.data.result.role);
+      localStorage.setItem("token", res.data.token);
+      localStorage.setItem("id", res.data.result._id);
 
+      const local = localStorage.getItem("token");
+      setTokenLocal(local);
+    }
+  };
 
-        if (res) {
-            // اللوكل الستورج تجيب لي ثلاث حاجات وضعتها وهي الرول والتوكين وايدي اليوزر
-            localStorage.setItem("role",res.data.result.role);
-            localStorage.setItem("token",res.data.token);
-            localStorage.setItem("id",res.data.result._id);
+  // نهاية فانكشن اللوقين
 
-          const local = localStorage.getItem("token");
-          setTokenLocal(local);
-            
-        }
-
-    } ;
-
-    // نهاية فانكشن اللوقين  
-
-
-    return (
-        <div>
-           {tokenLocal ? (
+  return (
+    <div>
+      {tokenLocal ? (
         <Task />
       ) : (
         <>
@@ -68,15 +64,13 @@ const Login = () => {
           <h1>Login</h1>
           <form onSubmit={logIn}>
             <input
-              className="inputVal"
-              type="text"
+              type="email"
               name="email"
               placeholder="Email Address"
               onChange={(e) => setEmail(e.target.value)}
               required
             />
             <input
-              className="inputVal"
               type="password"
               name="password"
               placeholder="Password"
@@ -97,4 +91,4 @@ const Login = () => {
   );
 };
 
-export default Login
+export default Login;
