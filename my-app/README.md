@@ -39,7 +39,7 @@ It is a link between backend and frontend and fetching the task from Mongoose Da
 
 
 
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
+
 
 ## Description
 
