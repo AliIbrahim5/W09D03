@@ -1,8 +1,13 @@
 # W09D03
 
 ## The packages used:
-
-** npm i axios **
+**npx create-react-app my-app**
+**npm i axios**
+**npm i dotenv**
+**npm i react**
+**npm i sweetalert2**
+**npm i react-redux**
+**npm i redux-devtools-extersion**
 
 
 ## Description
@@ -17,8 +22,8 @@ It is a link between backend and frontend and fetching the task from Mongoose Da
 - **Login:** As a user I can login to the platform so that I can log my exit points
 - **Logout:** As a user I can logout from the platform so no one else can use it
 - **Add a new task** You can create as many stickers as you want
-- ** Edit task ** You can also add if you add a task and want to modify it
-- ** delete task ** As a user I can add players to a tournament
+- **Edit task** You can also add if you add a task and want to modify it
+- **delete task** As a user I can add players to a tournament
 
 
 ## React Router Routes (React App)
