@@ -34,34 +34,79 @@ It is a link between backend and frontend and fetching the task from Mongoose Da
 | `//resgister`    | SignupPage           | anon only `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup|
 | `/login`         | LoginPage            | anon only `<AnonRoute>`    | Login form, link to signup, navigate to homepage after login |
 |  `/taskdelet/id` |  delete task         |                            |                                                              |
-| `/tasks`         |ShowAllTasksForTheUser| user only `<PrivateRoute>` | Edits a exit points                                          |
-| `/task`          | add a task           | user only `<PrivateRoute>` | Details of a exit points to edit                             |
-|`/tasksupdeta/id` | Editing the task     | user only `<PrivateRoute>` | Delete exit points                                           |
-|                  |                      |                            |                                                              |
-|                  |                      |                            |                                                              |
-|                  |                      |                            |                                                              |
-|                  |                      |                            |                                                              |
-|                  |                      |                            |                                                              |
-|                  |                      |                            |                                                              |
-|                  |                      |                            |                                                              |
+| `/tasks`         |ShowAllTasksForTheUser| user only `<PrivateRoute>` | Edits a exit                                           |
+| `/task`          | add a task           | user only `<PrivateRoute>` | Details of a exit  to edit                             |
+|`/tasksupdeta/id` | Editing the task     | user only `<PrivateRoute>` | Delete exit                                            |
+
+
+## components
+
+**login**
+**register**
+**task**
 
 
 
 
+# Server / Backend
+
+
+## Models
 
 
 
 
+schema task
+
+``` 
+{
+const mongoose = require("mongoose");
+
+
+const task = new mongoose.Schema({
+  name: { type: String },
+  isDelete: { type: String, default: false },
+  user: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+});
+
+module.exports = mongoose.model("Taskss", task);
+}
+```
 
 
 
 
+schema user
+
+``` 
+{
+const mongoose = require("mongoose");
+const user = new mongoose.Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, require: true },
+  role: { type: mongoose.Schema.Types.ObjectId, ref: "Role" },
+});
+
+module.exports = mongoose.model("User", user);
+
+}
+```
 
 
 
+schema role
 
+``` 
+{
+const mongoose = require("mongoose");
 
-
+const role = new mongoose.Schema({
+  role: { type: String },
+  permossion: { type: Array },
+});
+module.exports = mongoose.model("Role", role);
+}
+```
 
 
 

@@ -113,7 +113,7 @@ const Task = () => {
           <div className="wrapper">
             {!token ? (
               <h1>
-                You are not logeddin yet, so <Link to="/login">login</Link> or <Link to="/signup">signup</Link>
+                You are not logeddin yet, so <Link to="/login">login</Link> or <Link to="/register">signup</Link>
               </h1>
             ) : (
               <div className="ItemsCon">

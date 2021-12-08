@@ -13,6 +13,8 @@ function App() {
      </Routes>
      <Link to="/register" >Register</Link>
      &&&
+     <Link to="/" >home</Link>
+     &&&
      <Link to="/login" >Login</Link>
      {"&&&"}
      <Link to="/task" >Task</Link>
