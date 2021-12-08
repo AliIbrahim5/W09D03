@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 
 
-const URL = "http://localhost:5000";
+// const URL = "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const Task = () => {
     const [token,setToken] =useState("");
@@ -27,7 +29,7 @@ const Task = () => {
 
     const  gettasks =async (token)=>{
         try {
-            const res =await axios.get(`${URL}/tasks`,{
+            const res =await axios.get(`${BASE_URL}/tasks`,{
             headers:{
                 Authorization:  `Brarer ${token}`,
 
@@ -44,7 +46,7 @@ const Task = () => {
 
     const addtask =async ()=>{
         try {
-            await axios.post(`${URL}/task`,{
+            await axios.post(`${BASE_URL}/task`,{
                 name:task,
 
             },
@@ -77,7 +79,7 @@ const Task = () => {
             reverseButtons: true,
            });
            if (updatetask) {
-               await axios.put(`${URL}/tasksupdeta/${id}`,{
+               await axios.put(`${BASE_URL}/tasksupdeta/${id}`,{
                    name:updatetask,
                },
                {
@@ -94,7 +96,7 @@ const Task = () => {
     };
     const deletetask = async (id)=>{
         try {
-            await axios.delete(`${URL}/taskdelet/${id}`,{
+            await axios.delete(`${BASE_URL}/taskdelet/${id}`,{
                 headers:{
                     Authorization: `Bearer ${token}`,
 

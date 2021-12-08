@@ -5,8 +5,8 @@ import axios from "axios";
 import Task from "../Task";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../reducers/login";
-const URL = "http://localhost:5000";
-// const URL = process.env.REACT_APP_URL
+// const URL = "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL
 // فانكسن لوقين  فيها كل العمليات والفانكشن الي وهي تعتبر الام لجميع مابداخلها
 const Login = () => {
   const state = useSelector((state) => {
@@ -14,7 +14,7 @@ const Login = () => {
       singnIn: state.singnIn,
     };
   });
-  console.log(state);
+  console.log(BASE_URL);
   console.log(state.singnIn);
   const dispatch = useDispatch();
 
@@ -29,7 +29,7 @@ const Login = () => {
   const logIn = async (vil) => {
     vil.preventDefault();
     // console.log(URL);
-    const res = await axios.post(`${URL}/login`, {
+    const res = await axios.post(`${BASE_URL}/login`, {
       email: email,
       password: password,
     });

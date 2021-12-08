@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import axios from "axios";
-const URL = "http://localhost:5000";
+// const URL = "http://localhost:5000";
+const BASE_URL = process.env.REACT_APP_BASE_URL
+
 
 const Register = () => {
   const [logemail, setLogemail] = useState();
@@ -8,7 +10,7 @@ const Register = () => {
   const [logrole, setLogrole] = useState();
   // بداية فانكشن تسجيل يوزر جديد
   const register = async (val) => {
-    const result = await axios.post(`${URL}/resgister`, {
+    const result = await axios.post(`${BASE_URL}/resgister`, {
       email: logemail,
       password: logpassword,
       role: "61a5fa2d4812057febe9c138",
