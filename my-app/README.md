@@ -1,13 +1,20 @@
 # W09D03
 
 ## The packages used:
-**npx create-react-app my-app**
-**npm i axios**
-**npm i dotenv**
-**npm i react**
-**npm i sweetalert2**
-**npm i react-redux**
-**npm i redux-devtools-extersion**
+- [React](https://reactjs.org/) A JavaScript library for building user interfaces.
+
+- [axios](https://www.npmjs.com/package/axios) is a promise based HTTP client for the browser and node.js.
+
+- [redux](https://www.npmjs.com/package/redux) is a predictable state container for JavaScript apps.
+
+- [react-redux](https://www.npmjs.com/package/react-redux) is a React bindings for Redux.
+
+- [redux-devtools-extension](https://www.npmjs.com/package/redux-devtools-extension) is a debugging platform for Redux apps.
+
+- [react-icons](https://react-icons.github.io/react-icons/) Include popular icons in your React projects easily with react-icons.
+
+- [sweetalert2](https://sweetalert2.github.io/) A Beautiful, Responsive, Customizable, Accessible (Wai-aria) Replacement For Javascript's Popup Boxes.
+
 
 
 ## Description
